@@ -10,18 +10,16 @@ public class students {
 
     // Creating objects of Scanner and students class
     Scanner input = new Scanner(System.in);
-    student theStudents[] = new student[50];
+    student[] theStudents = new student[50];
 
     public static int count = 0;
 
     // Method 1
     // To add books
-    public void addStudent(student s)
-    {
+    public void addStudent(student s) {
         for (int i = 0; i < count; i++) {
 
-            if (s.regNum.equalsIgnoreCase(
-                    theStudents[i].regNum)) {
+            if (s.regNum.equalsIgnoreCase(theStudents[i].regNum)) {
 
                 // Print statement
                 System.out.println(
@@ -40,23 +38,19 @@ public class students {
 
     // Method 2
     // Displaying all students
-    public void showAllStudents()
-    {
+    public void showAllStudents() {
         // Printing student name and
         // corresponding registered number
         System.out.println("Student Name\t\tReg Number");
+        
         for (int i = 0; i < count; i++) {
-
-            System.out.println(theStudents[i].studentName
-                               + "\t\t"
-                               + theStudents[i].regNum);
+            System.out.println(theStudents[i].studentName + "\t\t" + theStudents[i].regNum);
         }
     }
 
     // Method 3
     // To check the Student
-    public int isStudent()
-    {
+    public int isStudent() {
         // Display message only
         System.out.println("Enter Reg Number:");
 
@@ -64,8 +58,7 @@ public class students {
 
         for (int i = 0; i < count; i++) {
 
-            if (theStudents[i].regNum.equalsIgnoreCase(
-                    regNum)) {
+            if (theStudents[i].regNum.equalsIgnoreCase(regNum)) {
                 return i;
             }
         }
@@ -79,8 +72,7 @@ public class students {
 
     // Method 4
     // To remove the book
-    public void checkOutBook(books book)
-    {
+    public void checkOutBook(books book) {
         int studentIndex = this.isStudent();
 
         if (studentIndex != -1) {
@@ -92,39 +84,32 @@ public class students {
             System.out.println("checking out");
             if (b != null) {
 
-                if (theStudents[studentIndex].booksCount
-                    <= 3) {
+                if (theStudents[studentIndex].booksCount <= 3) {
 
                     System.out.println("adding book");
-                    theStudents[studentIndex].borrowedBooks
-                        [theStudents[studentIndex]
-                             .booksCount]
-                        = b;
+                    theStudents[studentIndex].borrowedBooks[theStudents[studentIndex].booksCount] = b;
                     theStudents[studentIndex].booksCount++;
 
                     return;
-                }
-                else {
+                } else {
 
-                    System.out.println(
-                        "Student Can not Borrow more than 3 Books.");
+                    System.out.println("Student Can not Borrow more than 3 Books.");
                     return;
                 }
             }
+            
             System.out.println("Book is not Available.");
         }
     }
 
     // Method 5
     // To add the book
-    public void checkInBook(books book)
-    {
+    public void checkInBook(books book) {
         int studentIndex = this.isStudent();
         if (studentIndex != -1) {
 
             // Printing credentials corresponding to student
-            System.out.println(
-                "S.No\t\t\tBook Name\t\t\tAuthor Name");
+            System.out.println("S.No\t\t\tBook Name\t\t\tAuthor Name");
 
             student s = theStudents[studentIndex];
 
@@ -137,8 +122,7 @@ public class students {
             }
 
             // Display message only
-            System.out.println(
-                "Enter Serial Number of Book to be Checked In:");
+            System.out.println("Enter Serial Number of Book to be Checked In:");
 
             int sNo = input.nextInt();
 
@@ -151,8 +135,7 @@ public class students {
                 }
             }
 
-            System.out.println("Book of Serial No " + sNo
-                               + "not Found");
+            System.out.println("Book of Serial No " + sNo + "not Found");
         }
     }
 }
