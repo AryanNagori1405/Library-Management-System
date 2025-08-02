@@ -9,22 +9,21 @@ import java.util.Scanner;
 public class books {
 
     // Class data members
-    book theBooks[] = new book[50];
+    book[] theBooks = new book[50];
     public static int count;
 
     Scanner input = new Scanner(System.in);
 
     // Method 1
     //  To compare books
-    public int compareBookObjects(book b1, book b2)
-    {
+    public int compareBookObjects(book b1, book b2) {
 
         // If book name matches
         if (b1.bookName.equalsIgnoreCase(b2.bookName)) {
 
             // Printing book exists
-            System.out.println(
-                "Book of this Name Already Exists.");
+            System.out.println("Book of this Name Already Exists.");
+            
             return 0;
         }
 
@@ -32,46 +31,38 @@ public class books {
         if (b1.sNo == b2.sNo) {
 
             // Print book exists
-            System.out.println(
-                "Book of this Serial No Already Exists.");
+            System.out.println("Book of this Serial No Already Exists.");
 
             return 0;
         }
+        
         return 1;
     }
 
     // Method 2
     // To add book
-    public void addBook(book b)
-    {
+    public void addBook(book b) {
 
         for (int i = 0; i < count; i++) {
 
-            if (this.compareBookObjects(b, this.theBooks[i])
-                == 0)
+            if (this.compareBookObjects(b, this.theBooks[i]) == 0)
                 return;
         }
 
         if (count < 50) {
-
             theBooks[count] = b;
             count++;
-        }
-        else {
-
-            System.out.println(
-                "No Space to Add More Books.");
+        } else {
+            System.out.println("No Space to Add More Books.");
         }
     }
 
     // Method 3
     // To search book by serial number
-    public void searchBySno()
-    {
+    public void searchBySno() {
 
         // Display message
-        System.out.println(
-            "\t\t\t\tSEARCH BY SERIAL NUMBER\n");
+        System.out.println("\t\t\t\tSEARCH BY SERIAL NUMBER\n");
 
         // Class data members
         int sNo;
@@ -79,8 +70,7 @@ public class books {
         sNo = input.nextInt();
 
         int flag = 0;
-        System.out.println(
-            "S.No\t\tName\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
+        System.out.println("S.No\t\tName\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
 
         for (int i = 0; i < count; i++) {
             if (sNo == theBooks[i].sNo) {
@@ -95,18 +85,15 @@ public class books {
             }
         }
         if (flag == 0)
-            System.out.println("No Book for Serial No "
-                               + sNo + " Found.");
+            System.out.println("No Book for Serial No " + sNo + " Found.");
     }
 
     // Method 4
     // To search author by name
-    public void searchByAuthorName()
-    {
+    public void searchByAuthorName() {
 
         // Display message
-        System.out.println(
-            "\t\t\t\tSEARCH BY AUTHOR'S NAME");
+        System.out.println("\t\t\t\tSEARCH BY AUTHOR'S NAME");
 
         input.nextLine();
 
@@ -115,14 +102,12 @@ public class books {
 
         int flag = 0;
 
-        System.out.println(
-            "S.No\t\tName\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
+        System.out.println("S.No\t\tName\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
 
         for (int i = 0; i < count; i++) {
 
             // if author matches any of its book
-            if (authorName.equalsIgnoreCase(
-                    theBooks[i].authorName)) {
+            if (authorName.equalsIgnoreCase(theBooks[i].authorName)) {
 
                 // Print below corresponding credentials
                 System.out.println(
@@ -137,18 +122,15 @@ public class books {
 
         // Else no book matches for author
         if (flag == 0)
-            System.out.println("No Books of " + authorName
-                               + " Found.");
+            System.out.println("No Books of " + authorName + " Found.");
     }
 
     // Method 5
     // To display all books
-    public void showAllBooks()
-    {
+    public void showAllBooks() {
 
         System.out.println("\t\t\t\tSHOWING ALL BOOKS\n");
-        System.out.println(
-            "S.No\t\tName\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
+        System.out.println("S.No\t\tName\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
 
         for (int i = 0; i < count; i++) {
 
@@ -163,11 +145,9 @@ public class books {
 
     // Method 6
     // To edit the book
-    public void upgradeBookQty()
-    {
+    public void upgradeBookQty() {
 
-        System.out.println(
-            "\t\t\t\tUPGRADE QUANTITY OF A BOOK\n");
+        System.out.println("\t\t\t\tUPGRADE QUANTITY OF A BOOK\n");
         System.out.println("Enter Serial No of Book");
 
         int sNo = input.nextInt();
@@ -177,8 +157,7 @@ public class books {
             if (sNo == theBooks[i].sNo) {
 
                 // Display message
-                System.out.println(
-                    "Enter No of Books to be Added:");
+                System.out.println("Enter No of Books to be Added:");
 
                 int addingQty = input.nextInt();
                 theBooks[i].bookQty += addingQty;
@@ -197,8 +176,8 @@ public class books {
         // Displaying menu
         System.out.println(
             "----------------------------------------------------------------------------------------------------------");
-        System.out.println("Press 1 to Add new Book.");
         System.out.println("Press 0 to Exit Application.");
+        System.out.println("Press 1 to Add new Book.");
         System.out.println(
             "Press 2 to Upgrade Quantity of a Book.");
         System.out.println("Press 3 to Search a Book.");
@@ -230,18 +209,15 @@ public class books {
             }
         }
 
-        System.out.println("No Book of Serial Number "
-                           + " Available in Library.");
+        System.out.println("No Book of Serial Number " + " Available in Library.");
         return -1;
     }
 
     // Method 9
     // To remove the book from the library
-    public book checkOutBook()
-    {
+    public book checkOutBook() {
 
-        System.out.println(
-            "Enter Serial No of Book to be Checked Out.");
+        System.out.println("Enter Serial No of Book to be Checked Out.");
         int sNo = input.nextInt();
 
         int bookIndex = isAvailable(sNo);
@@ -255,8 +231,7 @@ public class books {
 
     // Method 10
     // To add the Book to the Library
-    public void checkInBook(book b)
-    {
+    public void checkInBook(book b) {
         for (int i = 0; i < count; i++) {
             if (b.equals(theBooks[i])) {
                 theBooks[i].bookQtyCopy++;
@@ -264,4 +239,5 @@ public class books {
             }
         }
     }
+
 }
