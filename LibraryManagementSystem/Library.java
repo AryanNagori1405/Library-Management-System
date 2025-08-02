@@ -8,8 +8,7 @@ import java.util.Scanner;
 public class Library {
 
     // Main driver method
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         // Creating object of Scanner class
         // to take input from user
         Scanner input = new Scanner(System.in);
@@ -103,15 +102,11 @@ public class Library {
                 // Default case that will execute for sure
                 // if above cases does not match
             default:
-
                 // Print statement
                 System.out.println("ENTER BETWEEN 0 TO 8.");
             }
-
-        }
-
+        } while (choice != 0);
         // Checking condition at last where we are
         // checking case entered value is not zero
-        while (choice != 0);
     }
 }
