@@ -15,7 +15,7 @@ public class Library {
 
         // Displaying menu
         System.out.println(
-            "********************Welcome to the Library!********************");
+            "**********************Welcome to the Library!**********************");
         System.out.println(
             "                  Select From The Following Options:               ");
         System.out.println(
@@ -110,4 +110,5 @@ public class Library {
         // checking case entered value is not zero
     }
 }
+
 
