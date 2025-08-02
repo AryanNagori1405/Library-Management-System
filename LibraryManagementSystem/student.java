@@ -11,7 +11,7 @@ public class student {
     String studentName;
     String regNum;
 
-    book borrowedBooks[] = new book[3];
+    book[] borrowedBooks = new book[3];
     public int booksCount = 0;
 
     // Creating object of Scanner class to
@@ -19,8 +19,7 @@ public class student {
     Scanner input = new Scanner(System.in);
 
     // Constructor
-    public student()
-    {
+    public student() {
         // Print statement
         System.out.println("Enter Student Name:");
 
